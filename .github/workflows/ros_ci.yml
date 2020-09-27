@@ -1,7 +1,8 @@
 name: ROS Timetable Check
 on:
-    branches-ignore:
-        - 'master'
+    push:
+        branches-ignore:
+            - 'master'
 jobs:
     ci-test:
         name: Test if Mergeable with Master Branch
