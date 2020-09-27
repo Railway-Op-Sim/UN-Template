@@ -1,8 +1,5 @@
 name: ROS Timetable Check
-on:
-    push:
-        branches-ignore:
-            - 'master'
+on: [push]
 jobs:
     ci-test:
         name: Test if Mergeable with Master Branch
@@ -18,5 +15,10 @@ jobs:
         steps:
             - uses: actions/checkout@v2
 
+            - name: Extract branch name
+              shell: bash
+              run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+              id: extract_branch
+
             - name: Run MR Merge Script
-              run: git_merge_ttb --ttb-path Program_Timetables
+              run: git_merge_ttb ${{ steps.extract_branch.outputs.branch }} --soft --ttb-path Program_Timetables
