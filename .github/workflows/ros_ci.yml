@@ -1,0 +1,21 @@
+name: ROS Timetable Check
+on:
+    branches-ignore:
+        - 'master'
+jobs:
+    ci-test:
+        name: Test if Mergeable with Master Branch
+        runs-on: ubuntu-latest
+        container:
+            image: artemisbeta/railwayopsim-ci:latest
+            env:
+                DEBIAN_FRONTEND : noninteractive
+                LANG : 'en_GB.UTF-8' 
+                LANGUAGE : 'en_GB:en' 
+                LC_ALL : 'en_GB.UTF-8'
+        
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Run MR Merge Script
+              run: git_merge_ttb --ttb-path Program_Timetables
