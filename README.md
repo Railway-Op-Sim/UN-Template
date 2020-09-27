@@ -3,6 +3,7 @@ A brief description of what the map represents, including era, whether the route
 
 |[Remove this table] This repository should contain ultimately:|
 |:-------|
+| The name of your repository should follow convention of `<2 letter country code>-<name of route>`, e.g. `US-NorthEastCorridor`.|
 | An image of the route in BMP format within the `Images` folder.|
 | The completed railway `.rly` file or if in development `.dev` file in the `Railway` folder.|
 | A complete timetable within the `Program_Timetables` folder.|
