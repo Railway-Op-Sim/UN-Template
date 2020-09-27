@@ -10,6 +10,7 @@ A brief description of what the map represents, including era, whether the route
 | A session for the relevant timetable with preferred directions set.|
 | Documentation describing background to the route and operations tips within the `Documentation` folder. This can include any maps/useful information as well. The recommended format for the documentation is PDF to be universally accessible.|
 | Optionally a `Signal.hnd` file as a hint to what side signals are traditionally placed on the route.|
+| The table below, image of the state of the map, and the data sources should be updated regularly. The table uses the symbols<br><img src="https://image.flaticon.com/icons/svg/1632/1632596.svg" height="24">  <img src="https://image.flaticon.com/icons/svg/390/390914.svg" height="24">|
 
 [Image of Current State of Map](Images/image_name.bmp)
 
