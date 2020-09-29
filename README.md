@@ -1,6 +1,8 @@
 # Railway Operation Simulator Template Map 
 A brief description of what the map represents, including era, whether the route is fictional and the level of difficulty.
 
+**NOTE: Asynchronous route building is NOT supported, `.rly` files are not designed such that two versions can be combined by git. For route development contribution you must instead alternate between contributor making sure to pull the latest version before adding to it yourself.**
+
 |[Edit this README and Remove this table] This repository should contain ultimately:|
 |:-------|
 | The name of your repository should follow convention of `<2 letter country code>-<name of route>`, e.g. `US-NorthEastCorridor`.|
@@ -12,7 +14,7 @@ A brief description of what the map represents, including era, whether the route
 | Optionally a `Signal.hnd` file as a hint to what side signals are traditionally placed on the route.|
 | The table below, image of the state of the map, and the data sources should be updated regularly. In the table the statuses of not completed, completed and needs verification are represented by the icons:<br><img src="https://image.flaticon.com/icons/svg/1632/1632596.svg" height="24"><img src="https://image.flaticon.com/icons/svg/390/390914.svg" height="24"><img src="https://image.flaticon.com/icons/svg/1828/1828833.svg" height="24">|
 
-[Image of Current State of Map](Images/image_name.bmp)
+![Image of Current State of Map](Images/image_name.bmp)
 
 ## Current Status
 
