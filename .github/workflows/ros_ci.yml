@@ -3,6 +3,10 @@ on:
   push:
     branches-ignore:
       - master
+  pull_request:
+    branches:
+      - master
+    types: [assigned, opened, synchronize, reopened]
 jobs:
     ci-test:
         name: Test if Mergeable with Master Branch
@@ -24,12 +28,48 @@ jobs:
               shell: bash
               run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
               id: extract_branch
+
+            - name: Create branch for PR
+              if: ${{ github.event_name == 'pull_request'}}
+              run: git switch -c dev
             
             - name: Retrieve Master
               run: |
                    git fetch origin master
                    git checkout master
                    git checkout ${{ steps.extract_branch.outputs.branch }}
+              if: ${{ github.event_name != 'pull_request'}}
+
+            - name: Retrieve Master
+              run: |
+                   git fetch origin master
+                   git checkout master
+                   git checkout dev
+              if: ${{ github.event_name == 'pull_request'}}
 
             - name: Run MR Merge Script
               run: git_merge_ttb ${{ steps.extract_branch.outputs.branch }} --soft --ttb-path Program_Timetables
+              if: ${{ github.event_name != 'pull_request'}}
+
+            - name: Run MR Merge Script
+              run: git_merge_ttb dev --soft --ttb-path Program_Timetables
+              if: ${{ github.event_name == 'pull_request'}}
+
+            - uses: actions/upload-artifact@v1
+              with:
+                name: results
+                path: mr_check_output
+              if: ${{ github.event_name == 'pull_request'}}
+
+            - uses: actions/download-artifact@v1
+              with:
+                name: results
+              if: ${{ github.event_name == 'pull_request'}}
+                
+            - name: comment PR
+              uses: machine-learning-apps/pr-comment@master
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                path: results/mr-result.md
+              if: ${{ github.event_name == 'pull_request'}}
