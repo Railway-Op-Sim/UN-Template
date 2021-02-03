@@ -136,6 +136,7 @@ jobs:
         with:
             name: ttb_check_output_file
             path: Output.txt
+            if-no-files-found: ignore
 
       - name: Parse Output File with Python
         run: python ttb_check_python_parser/ttb_check.py Output.txt
