@@ -1,0 +1,36 @@
+# -------------------------------------------------------------------------------------------------------------------- #
+#                                                                                                                      #
+#       !!!!!!!!!!!!!!!!!!!!!!! REMOVE THES LINES WHEN TEMPLATING THIS REPOSITORY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!        #
+#                                                                                                                      #
+#                                         Template Simulation Metadata File                                            #
+#                                                                                                                      #
+#   The following file outlines the standard for the 'rail_project.toml' file which can be included within ROS         #
+#   simulation repositories as a means of providing additional information to be read by APIs.                         #
+#   Inclusion of such a file is recommended, all keys are optional however the more you provide the more useful the    #
+#   metadata is to potential API systems.                                                                              #
+#                                                                                                                      #
+#   NOTE: Personal information such as email or social network handles are not included under the definitions of a     #
+#   route metadata file.                                                                                               #
+#                                                                                                                      #
+#   Definitions                                                                                                        #
+#   -----------                                                                                                        #
+#                                                                                                                      #
+#   name                          title of the simulation project                                                      #
+#   alternate_name    (optional)  alternative name (actual name of region/network if different to simulation title)    #
+#   country_code                  if factual simulation alpha-2 country code (see https://www.iban.com/country-codes)  #
+#   year              (optional)  year simulation takes place if applicable                                            #
+#   factual                       is the simulation based on a real or fictional network (true/false)                  #
+#   difficulty                    estimate of the simulation difficulty out of 5                                       #
+#   author                        leading developer/author (must match ROS site author name)                           #
+#   contributors      (optional)  other contributing authors as list (must match ROS site author names)                #
+#                                                                                                                      #
+########################################################################################################################
+
+name = "Template Simulation Project"
+alternate_name = "Template Route"
+country_code = "UN"
+year = 2020
+factual = false
+difficulty = 1
+author = "ROS Development Team"
+contributors = ["Krizar", "Daniel Gill"]
