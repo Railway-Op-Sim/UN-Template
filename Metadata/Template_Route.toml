@@ -6,8 +6,12 @@
 #                                                                                                                      #
 #   The following file outlines the standard for the 'rail_project.toml' file which can be included within ROS         #
 #   simulation repositories as a means of providing additional information to be read by APIs.                         #
-#   Inclusion of such a file is recommended, all keys are optional however the more you provide the more useful the    #
+#   Inclusion of such a file is recommended, most keys are optional however the more you provide the more useful the   #
 #   metadata is to potential API systems.                                                                              #
+#                                                                                                                      #
+#   Inclusion of the 'rly_file' and 'ttb_files' keys are paramount, as they connects this metadata file with the       #
+#   simulation itself and can help confirm the expected route is installed, as well as provide a bridge between        #
+#   a route and its timetables.                                                                                        #
 #                                                                                                                      #
 #   NOTE: Personal information such as email or social network handles are not included under the definitions of a     #
 #   route metadata file.                                                                                               #
@@ -17,6 +21,8 @@
 #                                                                                                                      #
 #   name                          title of the simulation project                                                      #
 #   alternate_name    (optional)  alternative name (actual name of region/network if different to simulation title)    #
+#   rly_file                      filename of the simulation itself                                                    #
+#   ttb_files                     list of timetable files                                                              #
 #   country_code                  if factual simulation alpha-2 country code (see https://www.iban.com/country-codes)  #
 #   year              (optional)  year simulation takes place if applicable                                            #
 #   factual                       is the simulation based on a real or fictional network (true/false)                  #
@@ -29,6 +35,8 @@
 name = "Template Simulation Project"
 alternate_name = "Template Route"
 country_code = "UN"
+rly_file = "Template.rly"
+ttb_files = ["Template_2020.ttb"]
 year = 2020
 factual = false
 difficulty = 1
