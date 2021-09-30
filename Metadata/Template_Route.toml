@@ -20,7 +20,8 @@
 #   -----------                                                                                                        #
 #                                                                                                                      #
 #   name                          title of the simulation project                                                      #
-#   alternate_name    (optional)  alternative name (actual name of region/network if different to simulation title)    #
+#   display_name    (optional)    alternative name (name that would be used for display purposes)                      #
+#   description     (optional)    a brief line summary of the project                                                  #
 #   rly_file                      filename of the simulation itself                                                    #
 #   ttb_files                     list of timetable files                                                              #
 #   ssn_files                     list of session files                                                                #
@@ -34,7 +35,8 @@
 ########################################################################################################################
 
 name = "Template Simulation Project"
-alternate_name = "Template Route"
+display_name = "Template Route"
+description = "Template route for creation of new git based projects under the ROSDev Team"
 country_code = "UN"
 rly_file = "Template.rly"
 ttb_files = ["Template_2020.ttb"]
