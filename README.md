@@ -24,15 +24,39 @@ A brief description of what the map represents, including era, whether the route
 |   `name`| |title of the simulation project                                                      |
 |   `display_name`   | ☑️ |   alternative name (name that would be used for display purposes)                      |
 |  `description`    | ☑️  |  a brief line summary of the project                                                  |
-|  `rly_file`       |         |      filename of the simulation itself                                                    |
-|   `ttb_files`       |     |         list of timetable files                                                              |
-|   `ssn_files`        |     |        list of session files                                                                |
-|   `country_code`     |     |        if factual simulation alpha-2 country code (see https://www.iban.com/country-codes)  |
+|  `rly_file`       |         |      `.rly` filename of the simulation itself                                                    |
+|   `ttb_files`       |     |         list of timetable `.ttb`. files                                                              |
+|   `ssn_files`        | ☑️    |        list of session `.ssn` files                                                                |
+|   `doc_files`        |     |        list of documentation files (`.md`, `.txt`, `.pdf`)                                 |
+|   `img_files`        | ☑️  |        list of image files (`.png`, `.bmp`)                                                |
+|   `country_code`     |     |        if factual simulation alpha-2 country code (see https://www.iban.com/country-codes) else `FN`  |
 |   `year`             | ☑️|  year simulation takes place if applicable                                            |
 |   `factual`         |      |        is the simulation based on a real or fictional network (true/false)                  |
-|   `difficulty`     |        |       estimate of the simulation difficulty out of 5                                       |
+|   `difficulty`     |   ☑️     |       estimate of the simulation difficulty out of 5                                       |
 |   `author`          |        |      leading developer/author (must match ROS site author name)                           |
 |   `contributors`     | ☑️|  other contributing authors as list (must match ROS site author names)                |
+|   `version`          |   | semantic version of the form `MAJOR.MINOR.PATCH` (first release usually `1.0.0` but can be date `2021.12.1`)|
+|   `release_date`     |   |  release date in the form `YYYY-MM-DD`                                                |
+
+### Metadata File Example
+```toml
+name = "Simulation of Antwerp south"
+description = "Simulation covering the lines from Antwerpen Centraal to St. Katelijne-Waver/Lier"
+display_name = "Antwerpen Centraal"
+country_code = "BE"
+rly_file = "Antwerpen_Centraal.rly"
+ttb_files = ["Antwerpen_Centraal_2021.ttb"]
+ssn_files = ["Antwerpen_Centraal_2021.ssn"]
+doc_files = ["README.md"]
+img_files = ["Antwerpen_Centraal_2021.bmp"]
+year = 2021
+factual = true
+difficulty = 3
+author = "Krizar"
+contributors = ["Albert Ball"]
+version = "1.0.0"
+release_date = "2021-10-10"
+```
 
 
 ![Image of Current State of Map](Images/image_name.bmp)
