@@ -29,6 +29,7 @@ A brief description of what the map represents, including era, whether the route
 |   `ssn_files`        | ☑️    |        list of session `.ssn` files                                                                |
 |   `doc_files`        |     |        list of documentation files (`.md`, `.txt`, `.pdf`)                                 |
 |   `img_files`        | ☑️  |        list of image files (`.png`, `.bmp`)                                                |
+|   `graphic_files`    | ☑️  |        list of graphic files (`.png`, `.jpg`, `.bmp`)                                      |
 |   `country_code`     |     |        if factual simulation alpha-2 country code (see https://www.iban.com/country-codes) else `FN`  |
 |   `year`             | ☑️|  year simulation takes place if applicable                                            |
 |   `factual`         |      |        is the simulation based on a real or fictional network (true/false)                  |
