@@ -39,6 +39,7 @@ A brief description of what the map represents, including era, whether the route
 |   `contributors`     | ☑️|  other contributing authors as list (must match ROS site author names)                |
 |   `version`          |   | semantic version of the form `MAJOR.MINOR.PATCH` (first release usually `1.0.0` but can be date `2021.12.1`)|
 |   `release_date`     |   |  release date in the form `YYYY-MM-DD`                                                |
+|   `minimum_required` | ☑️ | minimum required version of ROS, if simulation contains features not present in older releases. |
 
 ### Metadata File Example
 ```toml
