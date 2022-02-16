@@ -1,0 +1,55 @@
+name: ROSCIDev
+on:
+  push:
+    tags:
+      - "v*"
+permissions:
+  contents: write
+jobs:
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get Previous tag
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+      - name: Create Documentation
+        uses: shrink/actions-document-publish@v1
+        id: publish-document
+        with:
+          sources: Documentation/*.md
+      - name: Set Output Directory
+        uses: mathiasvr/command-output@v1
+        id: outdir_name
+        with:
+          run: $(echo $GITHUB_REPOSITORY | cut -d '/' -f 2 | cut -d '-' -f 2 | xargs)
+      - name: Set Version Suffix
+        uses: mathiasvr/command-output@v1
+        id: outver
+        with:
+          run: echo ${${{ steps.previoustag.outputs.tag }}//./_}
+      - name: Create Package
+        run: |
+          DIR_NAME=${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}
+          mkdir -p $DIR_NAME
+          mkdir -p $DIR_NAME/Program\ timetables
+          cp Program_Timetables/*.ttb $DIR_NAME/Program\ timetables/
+          mkdir -p $DIR_NAME/Railways
+          cp Railway/*.rly $DIR_NAME/Railways/
+          mkdir -p $DIR_NAME/Metadata
+          cp Metadata/*.toml $DIR_NAME/Metadata/
+          if [ -n "$(ls Sessions/*.ssn)" ]; then mkdir -p $DIR_NAME/Sessions/; cp Sessions/*.ssn $DIR_NAME/Sessions/; fi
+          if [ -n "$(ls Graphics/*)" ]; then mkdir -p $DIR_NAME/Sessions/; cp Sessions/*.ssn $DIR_NAME/Sessions/; rm -rf $DIR_NAME/Graphics/.gitkeep; fi
+          mkdir -p $DIR_NAME/Images
+          cp Images/*.png $DIR_NAME/Images/
+          mkdir -p Documentation/
+          mv ${{ steps.publish-document.outputs.pdf }} $DIR_NAME/README.pdf
+      - name: Create Zip
+        - uses: montudor/action-zip@v1
+          with:
+            args: zip -qq -r ${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}.zip ${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}
+      - uses: actions/upload-artifact@v1
+        with:
+            name: simulation_release
+            path:${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}.zip
