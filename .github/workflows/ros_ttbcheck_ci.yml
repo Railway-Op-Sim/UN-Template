@@ -25,11 +25,13 @@ jobs:
         with:
             name: ttb_checker_exe_archive
             path: CI-Development/software/TimetableChecker.zip
+            retention-days: 1
       
       - uses: actions/upload-artifact@v1
         with:
             name: ttb_check_python_parser
             path: CI-Development/scripts/ttb_check.py
+            retention-days: 1
 
   run_timetable_check:
     needs: prepare-checker
@@ -86,6 +88,7 @@ jobs:
             name: ttb_check_output_file
             path: Output.txt
             if-no-files-found: ignore
+            retention-days: 1
         if: ${{ steps.check_test.outputs.files_exists == 'true' }}
 
       - name: Parse Output File with Python
