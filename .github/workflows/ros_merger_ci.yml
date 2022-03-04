@@ -65,6 +65,7 @@ jobs:
         with:
           name: merge_test_results
           path: mr_check_output
+          retention-days: 1
         if: ${{ steps.check_files.outputs.files_exists == 'true' }}
 
       - uses: actions/download-artifact@v1
@@ -94,12 +95,14 @@ jobs:
         with:
           name: ttb_checker_exe_archive
           path: CI-Development/software/TimetableChecker.zip
+          retention-days: 1
         if: ${{ steps.check_files.outputs.files_exists == 'true' }}
 
       - uses: actions/upload-artifact@v1
         with:
           name: ttb_check_python_parser
           path: CI-Development/scripts/ttb_check.py
+          retention-days: 1
         if: ${{ steps.check_files.outputs.files_exists == 'true' }}
 
   run_timetable_check:
@@ -160,6 +163,7 @@ jobs:
               name: ttb_check_output_file
               path: Output.txt
               if-no-files-found: ignore
+              retention-days: 1
           if: ${{ steps.check_archive.outputs.files_exists == 'true' }}
 
         - name: Parse Output File with Python
