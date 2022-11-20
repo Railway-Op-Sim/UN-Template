@@ -2,14 +2,14 @@ name: Merged Timetable Check
 on:
   push:
     branches-ignore:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
     types: [assigned, opened, synchronize, reopened]
 jobs:
   ci-test:
-    name: Test if Mergeable with Master Branch
+    name: Test if Mergeable with Main Branch
     runs-on: ubuntu-latest
     container:
       image: artemisbeta/railwayopsim-ci:latest
@@ -33,17 +33,17 @@ jobs:
         if: ${{ github.event_name == 'pull_request'}}
         run: git switch -c dev
       
-      - name: Retrieve Master
+      - name: Retrieve Main
         run: |
-            git fetch origin master
-            git checkout master
+            git fetch origin main
+            git checkout main
             git checkout ${{ steps.extract_branch.outputs.branch }}
         if: ${{ github.event_name != 'pull_request'}}
 
-      - name: Retrieve Master
+      - name: Retrieve Main
         run: |
-          git fetch origin master
-          git checkout master
+          git fetch origin main
+          git checkout main
           git checkout dev
         if: ${{ github.event_name == 'pull_request'}}
 
