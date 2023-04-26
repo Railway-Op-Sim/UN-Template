@@ -34,7 +34,7 @@ A brief description of what the map represents, including era, whether the route
 |   `country_code`     |     |        if factual simulation alpha-2 country code (see https://www.iban.com/country-codes) else `FN`  |
 |   `year`             | ☑️|  year simulation takes place if applicable                                            |
 |   `factual`         |      |        is the simulation based on a real or fictional network (true/false)                  |
-|   `difficulty`     |   ☑️     |       estimate of the simulation difficulty out of 5                                       |
+|   `difficulty`     |   ☑️     |       estimate of the simulation difficulty out of 10                                       |
 |   `author`          |        |      leading developer/author (must match ROS site author name)                           |
 |   `contributors`     | ☑️|  other contributing authors as list (must match ROS site author names)                |
 |   `version`          |   | semantic version of the form `MAJOR.MINOR.PATCH` (first release usually `1.0.0` but can be date `2021.12.1`)|
