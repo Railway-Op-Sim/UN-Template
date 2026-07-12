@@ -13,7 +13,7 @@ jobs:
             python-version: '3.14'
 
       - name: Install RailOSTools
-        run: python -m pip install "git+https://github.com/Railway-Op-Sim/railostools.git@v0.6.1#egg=railostools&subdirectory=python"
+        run: python -m pip install "git+https://github.com/Railway-Op-Sim/railostools.git@v0.6.2#egg=railostools&subdirectory=python"
 
       - name: Validate Timetable
         run: |
